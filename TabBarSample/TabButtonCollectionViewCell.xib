@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TabButtonCell" id="gTV-IL-0wX" customClass="TabButtonCollectionViewCell" customModule="TabBarSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mf-cG-xcn">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LH4-tt-IPI">
+                                <rect key="frame" x="27" y="41" width="27" height="15"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hT2-6J-yxL">
+                                <rect key="frame" x="19.5" y="7" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="N8e-2C-kbK"/>
+                                    <constraint firstAttribute="width" constant="40" id="qgn-O0-ipu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="LH4-tt-IPI" firstAttribute="top" secondItem="hT2-6J-yxL" secondAttribute="bottom" constant="4" id="QLV-Yo-yxs"/>
+                            <constraint firstAttribute="bottom" secondItem="LH4-tt-IPI" secondAttribute="bottom" constant="4" id="QUi-SM-2Ed"/>
+                            <constraint firstItem="LH4-tt-IPI" firstAttribute="centerX" secondItem="0Mf-cG-xcn" secondAttribute="centerX" id="VTw-7z-3kc"/>
+                            <constraint firstItem="hT2-6J-yxL" firstAttribute="centerX" secondItem="0Mf-cG-xcn" secondAttribute="centerX" id="v2m-Xd-0d1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="0Mf-cG-xcn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KoC-Iy-tof"/>
+                <constraint firstItem="0Mf-cG-xcn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bXj-9U-0cf"/>
+                <constraint firstAttribute="trailing" secondItem="0Mf-cG-xcn" secondAttribute="trailing" id="p3x-c5-FPP"/>
+                <constraint firstAttribute="bottom" secondItem="0Mf-cG-xcn" secondAttribute="bottom" id="u09-xY-QFt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="152" height="144"/>
+            <connections>
+                <outlet property="iconImageView" destination="hT2-6J-yxL" id="7UH-6J-XcK"/>
+                <outlet property="menuTitleLabel" destination="LH4-tt-IPI" id="yWY-EN-7RC"/>
+            </connections>
+            <point key="canvasLocation" x="-50" y="-60"/>
+        </collectionViewCell>
+    </objects>
+</document>
