@@ -32,6 +32,10 @@ class CustomView: UIView {
     }
 }
 
+class ImageCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+}
+
 class MyPlantsViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
@@ -51,18 +55,19 @@ class MyPlantsViewController: UIViewController {
         self.plantsInfoStackView.alpha = 0.0
         self.wateringInfoStackView.alpha = 0.0
         
-//        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
-//            self.wateringPlantInfoStackView.isHidden = !self.wateringPlantInfoStackViewHidden
-//        }) { (finished) in
-//            UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
-//                self.wateringInfoStackView.alpha = 1.0
-//            }) { (finished) in
-//                UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
-//                    self.plantsInfoStackView.alpha = 1.0
-//                    self.wateringPlantInfoStackViewHidden = !self.wateringPlantInfoStackViewHidden
-//                }, completion: nil)
-//            }
-//        }
+        
+        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+            self.wateringPlantInfoStackView.isHidden = !self.wateringPlantInfoStackViewHidden
+        }) { (finished) in
+            UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+                self.wateringInfoStackView.alpha = 1.0
+            }) { (finished) in
+                UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+                    self.plantsInfoStackView.alpha = 1.0
+                    self.wateringPlantInfoStackViewHidden = !self.wateringPlantInfoStackViewHidden
+                }, completion: nil)
+            }
+        }
         
 //        UIView.animate(withDuration: 1.0, animations: {
 //
@@ -75,6 +80,24 @@ class MyPlantsViewController: UIViewController {
 //        }
     }
     
+    @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
+        self.plantsInfoStackView.alpha = 0.0
+        self.wateringInfoStackView.alpha = 0.0
+        
+        
+        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+            self.wateringPlantInfoStackView.isHidden = !self.wateringPlantInfoStackViewHidden
+        }) { (finished) in
+            UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+                self.wateringInfoStackView.alpha = 1.0
+            }) { (finished) in
+                UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
+                    self.plantsInfoStackView.alpha = 1.0
+                    self.wateringPlantInfoStackViewHidden = !self.wateringPlantInfoStackViewHidden
+                }, completion: nil)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,4 +159,16 @@ class MyPlantsViewController: UIViewController {
     }
     */
 
+}
+
+extension MyPlantsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
+        cell.imageView.image = UIImage(named: "plant\(indexPath.row+1)")
+        return cell
+    }
 }
